@@ -5,7 +5,7 @@ var http = require('http'),
     exec = require('child_process').exec,
     _ = require('underscore'),
     fs = require('fs'),
-    app = express();
+    app = express.createServer();
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.bodyParser({ keepExtensions: true, uploadDir: __dirname + '/files' }));
