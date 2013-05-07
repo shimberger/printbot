@@ -39,6 +39,7 @@ var searchOptions = {
 setInterval(function() {
   _.each(clients,function(client) {
     client.readdir('',function(status,reply) {
+      if (reply == null) return;
       _.each(reply,function(dropboxFile) {
         var suffix = ".pdf";
         var outFileName = uuid.v4() + suffix
