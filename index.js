@@ -20,6 +20,9 @@ function saveToken(token) {
   tokens.push(token);
   fs.writeFile(__dirname + '/accessTokens.json', JSON.stringify(tokens), function(err) {
     console.log("Updated tokens with " + token)
+    clients = _.map(tokens,function(token) {
+     return dropboxApp.client(token)
+    })
   })
 }
 
