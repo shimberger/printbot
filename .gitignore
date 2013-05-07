@@ -11,4 +11,7 @@ pids
 logs
 results
 
+appConfig.json
+accessTokens.json
+
 npm-debug.log

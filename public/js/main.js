@@ -1,5 +1,6 @@
 Dropzone.options.dropzone = {
   previewsContainer: '#fakepreview',
+  dictDefaultMessage: 'Drop PDF here to print',
   accept: function(file, done) {
     var suffix = ".pdf";
     if (file.name.slice(-suffix.length) == suffix) {

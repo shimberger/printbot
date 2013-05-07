@@ -108,25 +108,27 @@ textarea {
 }
 
 #bot {
-
+    width: 420px;    
     margin: 0 auto;
 }
 
 #bot .dropzone {
-
     font-size: 20px;
     text-align: center;
     border: 1px solid grey;    
     margin: 0 auto;    
-    width: 600px;
-    height: 300px;
+
+    height: 270px;
 }
 
 #bot .dropzone .message {
-    font-family: 'Bad Script', cursive;
+    font-family: 'Iceland', cursive;
     margin-top: 130px;
 }
 
+#dropbox {
+    text-align: center;
+}
 
 
 
