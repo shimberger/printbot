@@ -1,0 +1,12 @@
+{
+  "name": "printbot",
+  "version": "0.1.0",
+  "author": "Print Bot inc.",
+  "description": "A simple bot that eats PDFs and spits out paper",
+  "dependencies" : {
+    "express": "3.x",
+    "underscore": "1.4",
+    "uuid"   : "1.4",
+    "dropbox": "0.9"
+  }
+}
