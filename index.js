@@ -8,6 +8,20 @@ var http = require('http'),
     fs = require('fs'),
     app = express();
 
+
+/**
+/home/shimberger/printbot/node_modules/dbox/lib/dbox.js:262
+                if (reply.contents) {
+                         ^
+TypeError: Cannot read property 'contents' of null
+    at /home/shimberger/printbot/node_modules/dbox/lib/dbox.js:262:26
+    at Request._callback (/home/shimberger/printbot/node_modules/dbox/lib/dbox.js:224:17)
+    at Request.self.callback (/home/shimberger/printbot/node_modules/dbox/node_modules/request/main.js:119:22)
+    at Request.<anonymous> (/home/shimberger/printbot/node_modules/dbox/node_modules/request/main.js:212:58)
+
+
+**/
+
 app.use(express.static(__dirname + '/public'));
 app.use(express.bodyParser({ keepExtensions: true, uploadDir: __dirname + '/files' }));
 
@@ -45,6 +59,7 @@ setInterval(function() {
         var outFileName = uuid.v4() + suffix
         if (dropboxFile.slice(-suffix.length) == suffix) {
           client.get(dropboxFile, function(status, reply, metadata){
+            if (reply == null) return;
             var path = __dirname + '/files/' + outFileName
             fs.writeFile(path, reply, function(err) {
               exec("lp " + path, function(err,stdout,stderr) {
@@ -63,7 +78,7 @@ setInterval(function() {
       })
     })
   })
-},5000);
+},10000);
 
 app.post('/upload', function(req, res){
   var path = req.files.file.path;
